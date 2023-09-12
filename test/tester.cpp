@@ -1,4 +1,4 @@
-#include "ProfiledPIDController.h"
+#include "frc/ProfiledPIDController.h"
 #include <spdlog/spdlog.h>
 
 static constexpr auto kDt = 0.05;
@@ -6,7 +6,7 @@ static constexpr auto kDt = 0.05;
 void testTrapezoidProfile() {
     frc::TrapezoidProfile::Constraints constraints{750, 500};  // max vel: 0.75m/s, max acc: 1m/ss
     frc::TrapezoidProfile::State goal{3000, 0}; // final dist: 3m, vel: 0
-    frc::TrapezoidProfile::State state;4
+    frc::TrapezoidProfile::State state;
 
     frc::TrapezoidProfile profile{constraints};
     for (int i = 0; i < 280; ++i) {

@@ -105,7 +105,7 @@ namespace frc {
         /**
          * Returns the total time the profile takes to reach the goal.
          */
-        Duration TotalTime() const { return m_endDeccel; }
+        Duration TotalTime() const { return m_timeFromStart; }
 
         /**
          * Returns true if the profile has reached the goal.

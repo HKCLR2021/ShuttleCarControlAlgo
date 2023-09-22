@@ -16,9 +16,9 @@ namespace frc {
          * @param Ki     The integral coefficient.
          * @param Kd     The derivative coefficient.
          * @param period The period between controller updates in seconds. The
-         *               default is 20 milliseconds. Must be non-zero and positive.
+         *               default is 30 milliseconds. Must be non-zero and positive.
          */
-        PIDController(double Kp, double Ki, double Kd, double period = 20);
+        PIDController(double Kp, double Ki, double Kd, double period = 0.03);
 
         ~PIDController() = default;
 
@@ -189,6 +189,15 @@ namespace frc {
          * @param setpoint The new setpoint of the controller.
          */
         double Calculate(double measurement, double setpoint);
+
+        /**
+         * Returns the next output of the PID controller.
+         *
+         * @param measurement The current measurement of the process variable.
+         * @param setpoint The new setpoint of the controller.
+         * @param period The period from prevois control step
+         */
+        double Calculate(double measurement, double setpoint, double period);
 
         /**
          * Reset the previous error, the integral term, and disable the controller.

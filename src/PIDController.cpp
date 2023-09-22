@@ -9,7 +9,7 @@ namespace frc {
     PIDController::PIDController(double Kp, double Ki, double Kd, double period)
             : m_Kp(Kp), m_Ki(Ki), m_Kd(Kd), m_period(period) {
         if (period <= 0) {
-            m_period = 20;
+            m_period = 0.03;
         }
     }
 
@@ -142,6 +142,13 @@ namespace frc {
     double PIDController::Calculate(double measurement, double setpoint) {
         m_setpoint = setpoint;
         m_haveSetpoint = true;
+        return Calculate(measurement);
+    }
+
+    double PIDController::Calculate(double measurement, double setpoint, double period) {
+        m_setpoint = setpoint;
+        m_haveSetpoint = true;
+        m_period = period;
         return Calculate(measurement);
     }
 

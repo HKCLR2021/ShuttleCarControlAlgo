@@ -83,7 +83,7 @@ namespace frc {
                                         dt < m_endFullSpeed ? "<fullspeed_stage>" : 
                                         dt <= m_endDeccel ? "<dec_stage>" : "<goal_reached>";
 
-        SPDLOG_DEBUG("cutoffDistBegin {:0.2f} | cutoffDistEnd {:0.2f} | fullTrapezoidDist {:0.2f} | fullSpeedDist {:0.2f}",
+        SPDLOG_DEBUG("cutoffDistBegin {:0.2f} | cutoffDistEnd {:0.2f} | TrapezoidDist {:0.2f} | fullSpeedDist {:0.2f}",
                 cutoffDistBegin, cutoffDistEnd, fullTrapezoidDist, fullSpeedDist);
 
         SPDLOG_DEBUG("<{}> m_endAccel {:0.2f} | m_endFullSpeed {:0.2f} | m_endDeccel {:0.2f}",

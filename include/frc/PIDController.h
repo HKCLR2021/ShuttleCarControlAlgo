@@ -221,9 +221,9 @@ namespace frc {
         // The period (in seconds) of the control loop running this controller
         double m_period;
 
-        double m_maximumIntegral = 1.0;
+        double m_maximumIntegral = 20.0;
 
-        double m_minimumIntegral = -1.0;
+        double m_minimumIntegral = -20.0;
 
         double m_maximumInput = 0;
 

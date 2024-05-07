@@ -128,12 +128,14 @@ namespace frc {
             // m_totalError =
             //     std::clamp(m_totalError + m_positionError * m_period,
             //                m_minimumIntegral / m_Ki, m_maximumIntegral / m_Ki);
-            m_totalError = (m_totalError + m_positionError * m_period) * m_Ki;
+            SPDLOG_INFO(" m_totalError {:0.2f} + {:0.2f} * {:0.2f}",m_totalError, m_positionError, m_period);
+            m_totalError = (m_totalError + m_positionError * m_period);
+
             // clamping to a reasonable range
             m_totalError = std::max(m_totalError, m_minimumIntegral);
             m_totalError = std::min(m_totalError, m_maximumIntegral);
         }
-        SPDLOG_DEBUG("<PIDController> period {:0.3f}, pos[{:0.2f}/{:0.2f}], pTerm {:0.2f}, iTerm {:0.2f}, dTerm {:0.2f}",
+        SPDLOG_INFO(" dt {:0.3f}, pos[{:0.2f}/{:0.2f}], pTerm {:0.2f}, iTerm {:0.2f}, dTerm {:0.2f}",
                     GetPeriod(), measurement, m_setpoint,
                     m_Kp * m_positionError, m_Ki * m_totalError, m_Kd * m_velocityError);
         return m_Kp * m_positionError + m_Ki * m_totalError + m_Kd * m_velocityError;
